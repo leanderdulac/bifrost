@@ -10,10 +10,10 @@ namespace PagarMe.Bifrost.Setup.Helper
 
         protected static String GetCurrentVersion()
         {
-            var assemblyInfoPath = Path.Combine(MainDir, "PagarMe.Bifrost", "Properties", "BifrostAssemblyInfo.cs");
+            var assemblyInfoPath = Path.Combine(MainDir, "PagarMe.Generic", "Version.cs");
             var assemblyInfoContent = File.ReadAllText(assemblyInfoPath);
 
-            var regexVersion = new Regex(@"AssemblyVersion\(""(\d+.\d+.\d+)");
+            var regexVersion = new Regex(@"(\d+.\d+.\d+)");
             var version = regexVersion.Match(assemblyInfoContent).Groups[1].Value;
 
             return version;
