@@ -36,9 +36,11 @@ namespace PagarMe.Generic
                 Log.Me.Info($"[{a}] {args[a]}");
             }
 
-            if (File.Exists(command))
+            var fullPath = Path.Combine(AssemblyPath, command);
+
+            if (File.Exists(fullPath))
             {
-                var allCommands = File.ReadAllText(command);
+                var allCommands = File.ReadAllText(fullPath);
 
                 for (var a = 0; a < args.Length; a++)
                 {
